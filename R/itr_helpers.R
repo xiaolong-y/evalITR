@@ -334,3 +334,33 @@ getAupecOutput_cv = function(
               aupec_vec = aupec_vec,
               outputdf = outputdf))
 }
+
+
+# transformation function for taucv matrix
+gettaucv <- function(
+    fit,
+    ...
+){
+  estimates <- fit$estimates
+  fit_ml <- estimates[[1]]$fit_ml
+  n_folds <- estimates[[1]]$params$n_folds
+  tau_cv <- list()
+  algorithms <- fit$df$algorithms
+
+  # for one model
+  for (k in seq(n_folds)) {
+
+    # if ("causal_forest" %in% algorithms) {
+      tau_cv[[k]] <- fit_ml[["causal_forest"]][[k]][["tau_cv"]]
+    # }
+    # convert to a single matrix
+      tau_cv <- do.call(cbind, tau_cv)
+
+  }
+
+  return(tau_cv)
+
+}
+
+
+
