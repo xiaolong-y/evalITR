@@ -1,0 +1,23 @@
+url: ~
+
+template:
+  bootstrap: 5
+
+reference:
+- title: "Estimation"
+- subtitle: "Without cross-validation"
+  contents:
+  - AUPEC
+  - GATE
+  - PAPD
+  - PAPE
+  - PAV
+- subtitle: "With cross-validation"
+  contents:
+  - ends_with("cv")
+- title: "Tests"
+  contents:
+  - ends_with("test")
+
+news:
+  releases:
