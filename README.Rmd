@@ -79,7 +79,8 @@ fit <- estimate_itr(outcome = outcomes,
                   "lasso",
                   "boost", 
                   "random_forest",
-                  "cart",),
+                  "cart",
+                  "bagging"),
                budget = 0.2,
                ratio = 0.7,
                n_folds = 7)
@@ -145,6 +146,7 @@ fit_cv <- estimate_itr(outcome = outcomes,
                treatment = treatment,
                covariates = covariates,
                data = star,
+
                algorithms = c( "causal_forest", 
                   "bartc",
                   # "bart",
@@ -228,6 +230,7 @@ for the writing score across a range of budget constraints for different algorit
 
 ```{r plot, fig.width=8, fig.height=8,fig.align = "center"}
 # plot the AUPEC with different ML algorithms
+
 plot(x = fit, 
       outcome = "g3tlangss",
       treatment = "treatment",
@@ -240,7 +243,6 @@ plot(x = fit,
           "random_forest",
           "bagging", 
           "cart"))
-
 ```
 
 

@@ -362,5 +362,5 @@ gettaucv <- function(
 
 }
 
-
+# length(gettaucv(fit_cv))
 
